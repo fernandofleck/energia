@@ -44,25 +44,25 @@ class Calculator extends React.Component{
 
     render(){
         return(
-            <div className="row">
+            <div className="row justify-content-center">
                 <form className="col-12 w-100 m-3 mb-5" onSubmit={this.handleSubmit}>
                     <table className="table table-striped">
                         <thead className='align-middle'>
                             <tr>
-                                <th scope="col col-md-2">Electrodoméstico</th>
-                                <th scope="col col-md-2">Potencia Wh</th>
-                                <th scope="col col-md-2">Cantidad</th>
-                                <th scope="col col-md-2">Horas de uso por día</th>
-                                <th scope="col col-md-2">Días al mes</th>
-                                <th scope="col"></th>
+                                <th scope="col col-md-2" className="text-center">Electrodoméstico</th>
+                                <th scope="col col-md-2" className="text-center">Potencia Wh</th>
+                                <th scope="col col-md-2" className="text-center">Cantidad</th>
+                                <th scope="col col-md-2" className="text-center">Horas de uso por día</th>
+                                <th scope="col col-md-2" className="text-center">Días al mes</th>
+                                <th scope="col" className="text-center"></th>
                             </tr>
                         </thead>
                         <tbody className='align-middle'>
                             {this.props.show()}
                         </tbody>
                     </table>
-                    <div class="col">
-                        <button className="btn btn-dark" type="submit">Calcular</button>
+                    <div className="position-relative">
+                    <button className="btn btn-dark position-absolute top-0 start-50 translate-middle-x" type="submit">Calcular</button>
                     </div>
                 </form>
                 {this.showTotal()}

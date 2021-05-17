@@ -1,4 +1,5 @@
 import React from 'react';
+import './Selector.css';
 
 class Selector extends React.Component{
     //alert(Object.entries(props.lista[0]));
@@ -6,7 +7,7 @@ class Selector extends React.Component{
     render(){
         return(
             <div className="btn-group col-12 col-md-6">
-                <button class="btn btn-dark dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                <button className="btn btn-dark dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                     Seleccione electrodomésticos
                 </button>
                 <ul className="dropdown-menu w-100">
@@ -15,7 +16,7 @@ class Selector extends React.Component{
                         //alert(l.nombre);
                         if (l.id!==null) {
                             return(
-                                <li className="w-100 dropdown-item text-wrap w-100" onClick={() => this.props.selectd(l.id)} href="#">{l.nombre}</li>
+                                <li className="dropdown-item text-wrap" onClick={() => this.props.selectd(l.id)} href="#">{l.nombre}</li>
                                 //<Opcion nombre={l.nombre}/>
                             )
                         }else{

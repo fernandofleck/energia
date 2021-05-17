@@ -53,7 +53,7 @@ class CalcularConsumo extends React.Component{
     handleShow(){
         let element = this.state.seleccionados.map(i=>{
             return(
-                <tr><td>{i.nombre}</td><td>{i.consumoWh}</td><td><input type='number' className='form-control' required/></td><td><input type='text' className='form-control' required/></td><td><input type='number' className='form-control' required/></td><td><button type='button' onClick={()=>{this.handleDelete(i)}} class='btn-close form-control' aria-label='Eliminar'></button></td></tr>
+                <tr><td>{i.nombre}</td><td className="text-center">{i.consumoWh}</td><td><input type='number' className='form-control' required/></td><td><input type='text' className='form-control' required/></td><td><input type='number' className='form-control' required/></td><td><button type='button' onClick={()=>{this.handleDelete(i)}} class='btn-close form-control' aria-label='Eliminar'></button></td></tr>
             );
         });
         return(element);
