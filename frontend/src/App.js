@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home';
-import './selector.css';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import CalcuConsu from './components/CalcuConsu';
 import Potencia from './components/Potencia';

@@ -1,7 +1,5 @@
 import React from 'react';
 import CalcularConsumo from './calculadoraConsumo/CalcularConsumo.js';
-import '../selector.css';
-
 
 function CalcuConsu() {
   return (
