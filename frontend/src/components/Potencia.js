@@ -27,11 +27,26 @@ function Potencia(props) {
     return data.Año;
   });
   //----------------------------------------
-  const etiq = anios.filter((value, index, self) => { 
+  let etiq = anios.filter((value, index, self) => { 
     return self.indexOf(value) === index;
   });
 
-  const potcias = etiq.map(a => {
+  //etiq=potenciaInstalada.filter(filtradoEmpresa);
+
+  //Filtrado por empresa
+
+  function filtradoEmpresa(obj) {
+    //alert(Object.entries(obj));
+    if (obj.agente_descripcion === 'E.B. YACYRETA') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //Filtrado de Datos a Mostrar
+
+  const potencias = etiq.map(a => {
     let potx=0;
     potenciaInstalada.map(p => {
       if (a===p.Año) {
@@ -42,7 +57,53 @@ function Potencia(props) {
     return (potx);
   });
 
-  alert(Object.entries(potcias));
+  const potenciasTermica = etiq.map(a => {
+    let potx=0;
+    potenciaInstalada.map(p => {
+      if (a===p.Año && p.fuente_generacion==='Térmica') {
+        potx = potx + parseFloat(p.MW);        
+      }
+      return (potx);
+    });
+    return (potx);
+  });
+
+  const potenciasHidraulica = etiq.map(a => {
+    let potx=0;
+    potenciaInstalada.map(p => {
+      if (a===p.Año && p.fuente_generacion==='Hidráulica' && p.agente_descripcion!=="E.B. YACYRETA") {
+        potx = potx + parseFloat(p.MW);        
+      }
+      return (potx);
+    });
+    return (potx);
+  });
+
+  //alert(Object.entries(potenciasHidraulica));
+
+  const potenciasBiomasa = etiq.map(a => {
+    let potx=0;
+    potenciaInstalada.map(p => {
+      if (a===p.Año && p.fuente_generacion==='Biomasa') {
+        potx = potx + parseFloat(p.MW);        
+      }
+      return (potx);
+    });
+    return (potx);
+  });
+
+  const potenciasSolar = etiq.map(a => {
+    let potx=0;
+    potenciaInstalada.map(p => {
+      if (a===p.Año && p.fuente_generacion==='Solar') {
+        potx = potx + parseFloat(p.MW);        
+      }
+      return (potx);
+    });
+    return (potx);
+  });
+
+  //alert(Object.entries(potcias));
   //----------------------------------------
   const data = {
     labels: anios.filter((value, index, self) => { 
@@ -50,19 +111,28 @@ function Potencia(props) {
     }),
     datasets: [
       {
-        label: '# of Red Votes',
-        data: potcias,
-        backgroundColor: 'rgb(255, 99, 132)',
+        label: 'Potencia Termica',
+        data: potenciasTermica,
+        backgroundColor: 'rgb(228, 87, 46, 0.7)',
+        stack:1,
       },
       {
-        label: '# of Blue Votes',
-        data: [2, 3, 20, 5, 1, 4],
-        backgroundColor: 'rgb(54, 162, 235)',
+        label: 'Potencia Hidráulica',
+        data: potenciasHidraulica,
+        backgroundColor: 'rgb(240, 246, 110, 0.7)',
+        stack:1,
       },
       {
-        label: '# of Green Votes',
-        data: [3, 10, 13, 15, 22, 30],
-        backgroundColor: 'rgb(75, 192, 192)',
+        label: 'Potencia Biomasa',
+        data: potenciasBiomasa,
+        backgroundColor: 'rgb(168, 198, 134, 0.7)',
+        stack:1,
+      },
+      {
+        label: 'Potencia Solar',
+        data: potenciasSolar,
+        backgroundColor: 'rgb(157, 156, 98, 0.7)',
+        stack:1,
       },
     ],
   };
