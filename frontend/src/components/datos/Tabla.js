@@ -6,7 +6,7 @@ function Tabla(props) {
         <table className="table table-striped table-sm align-middle">
             <thead className="position-sticky top-0 table-dark">
                 <tr>
-                    <th scope="col" className="text-uppercase text-center align-middle">Año</th>
+                    <th scope="col" className="text-uppercase text-center align-middle col-1">Año</th>
                     <th scope="col" className="text-uppercase text-center align-middle">Central</th>
                     <th scope="col" className="text-uppercase text-center align-middle">Agente</th>
                     <th scope="col" className="text-uppercase text-center align-middle">Fuente de Generación</th>

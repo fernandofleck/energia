@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 //import PotenciaInstalada from './potenciaInstalada.json';
 import axios from 'axios';
-import Tabla from './Tabla.js';
+import Tabla from './datos/Tabla.js';
 
 function Potencia(props) {
 
@@ -36,18 +36,18 @@ function Potencia(props) {
 
   //Filtrado por empresa
 
-  function filtradoEmpresa(obj) {
+  /*function filtradoEmpresa(obj) {
     //alert(Object.entries(obj));
     if (obj.agente_descripcion === 'E.B. YACYRETA') {
       return false;
     } else {
       return true;
     }
-  }
+  }*/
 
   //Filtrado de Datos a Mostrar
 
-  const potencias = etiq.map(a => {
+  /*const potencias = etiq.map(a => {
     let potx=0;
     potenciaInstalada.map(p => {
       if (a===p.Año) {
@@ -56,7 +56,7 @@ function Potencia(props) {
       return (potx);
     });
     return (potx);
-  });
+  });*/
 
   const potenciasTermica = etiq.map(a => {
     let potx=0;
